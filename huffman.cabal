@@ -1,0 +1,50 @@
+Cabal-Version: 1.12
+
+Name:		huffman
+Version:	2.0.0
+Build-Type:	Simple
+License:	BSD3
+License-File:	LICENSE
+Author:		Alex Washburn, Maxime Henrion
+Copyright:	2019 Alex Washburn, Maxime Henrion
+Maintainer:	Alex Washburn <hackage@recursion.ninja>
+Homepage:       https://github.com/recursion-ninja/huffman/issues#readme
+Bug-Reports:	https://github.com/recursion-ninja/huffman/issues
+Category:	Data, Compression
+Synopsis:	Pure Haskell implementation of the Huffman encoding algorithm
+Description:
+    A simple and pure Haskell implementation of the Huffman encoding algorithm.
+    .
+    The @huffman@ function provides the original O(n log n) algorithm implemented
+    with a priority queue.  If the input symbols are sorted by probability,
+    the O(n) @huffmanSorted@ function can be used instead.
+
+Tested-with:
+    GHC == 8.6.3
+    GHC == 8.4.4
+    GHC == 8.2.2
+    GHC == 8.0.2
+
+Extra-Source-Files:
+    README.md
+    CHANGELOG.md
+
+Source-Repository head
+  Type:     git
+  Location: http://github.com/recursion-ninja/huffman
+
+Library
+
+  Build-Depends:
+    base       >= 3   && < 5.0,
+    containers >= 0.6 && < 1.0,
+    fingertree >= 0.3 && < 1.0
+                
+  Exposed-Modules:
+      Data.Compression.Huffman
+
+  GHC-Options:
+      -Wall -O2 -funbox-strict-fields
+
+  Default-Language: Haskell2010
+  Hs-Source-Dirs:   src
